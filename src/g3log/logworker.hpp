@@ -98,7 +98,7 @@ namespace g3 {
          using namespace g3::internal;
          auto sink = std::make_shared<Sink<T>> (std::move(real_sink), call);
          addWrappedSink(sink);
-         return std::make_unique<SinkHandle<T>> (sink);
+         return std::unique_ptr<SinkHandle<T>> (new SinkHandle<T>(sink));
       }
 
 
